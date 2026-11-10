@@ -1,361 +1,438 @@
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gourmet Table | Fine Dining & Bar</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aswanth | DevOps Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+    background: #080d1b;
+    background-image:
+        radial-gradient(ellipse at 50% 85%, #063d86, transparent 55%);
+    min-height: 100vh;
+}
+
+/* Navigation */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7%;
+    background: rgba(20, 28, 48, 0.85);
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #20d9e8;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #c5d1e8;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #20d9e8;
+}
+
+/* Hero Section */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.welcome {
+    border: 1px solid #20d9e8;
+    color: #20d9e8;
+    padding: 9px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 35px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    margin-bottom: 15px;
+}
+
+.gradient {
+    background: linear-gradient(
+        90deg,
+        #20d9e8,
+        #398cff,
+        #9275ff
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 750px;
+    color: #c5d1e8;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Buttons */
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #20d9e8;
+    color: #20d9e8;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #20d9e8;
+    color: #071421;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 25px #20d9e855;
+}
+
+/* Common Sections */
+
+section.content {
+    padding: 80px 8%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.content h2 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+.description {
+    text-align: center;
+    max-width: 750px;
+    margin: auto;
+    color: #c5d1e8;
+    line-height: 1.8;
+}
+
+/* Skills */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+    gap: 20px;
+}
+
+.skill-card {
+    background: rgba(25, 40, 70, 0.8);
+    border: 1px solid #ffffff18;
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    border-color: #20d9e8;
+}
+
+.skill-card h3 {
+    color: #20d9e8;
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    color: #c5d1e8;
+    line-height: 1.6;
+}
+
+/* Contact */
+
+.contact-box {
+    text-align: center;
+    background: rgba(25, 40, 70, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.contact-box p {
+    color: #c5d1e8;
+    margin: 15px 0 25px;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8492ad;
+    border-top: 1px solid #ffffff15;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 650px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
+</style>
 </head>
-<body class="bg-stone-900 text-stone-100 font-sans antialiased">
 
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-950/80 backdrop-blur-md border-b border-stone-800">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-serif tracking-wider text-amber-500">The Gourmet Table</a>
-            
-            <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium">
-                <a href="#home" class="hover:text-amber-500 transition-colors">Home</a>
-                <a href="#menu" class="hover:text-amber-500 transition-colors">Menu</a>
-                <a href="#about" class="hover:text-amber-500 transition-colors">About</a>
-                <a href="#contact" class="hover:text-amber-500 transition-colors">Contact</a>
-            </nav>
+<body>
 
-            <a href="#contact" class="hidden md:inline-block bg-amber-600 hover:bg-amber-500 text-stone-950 px-5 py-2.5 rounded-full text-sm font-semibold uppercase tracking-wider transition-all">
-                Book Table
+<!-- Navigation -->
+
+<header class="navbar">
+
+    <div class="logo">
+        ASWANTH<span>.</span>
+    </div>
+
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+<!-- Home Section -->
+
+<section class="hero" id="home">
+
+    <div class="welcome">
+        WELCOME TO MY PORTFOLIO
+    </div>
+
+    <h1>
+        Hi, I'm <span class="gradient">Aswanth</span>
+    </h1>
+
+    <h2>
+        Aspiring DevOps Engineer
+    </h2>
+
+    <p>
+        Passionate about Cloud Computing, Automation,
+        Containerization and Infrastructure as Code.
+        Focused on building scalable, reliable and
+        automated deployment environments.
+    </p>
+
+    <div class="buttons">
+
+        <a href="#skills" class="btn btn-primary">
+            Explore My Skills
+        </a>
+
+        <a href="#contact" class="btn">
+            Contact Me
+        </a>
+
+    </div>
+
+</section>
+
+<!-- About Section -->
+
+<section class="content" id="about">
+
+    <h2>
+        About <span class="gradient">Me</span>
+    </h2>
+
+    <p class="description">
+        Hello! I'm Aswanth, an aspiring DevOps Engineer
+        interested in Linux, Cloud Computing, Automation,
+        CI/CD pipelines and Infrastructure as Code.
+
+        I enjoy learning new technologies and building
+        practical projects to improve my technical skills.
+        My goal is to become a professional DevOps Engineer.
+    </p>
+
+</section>
+
+<!-- Skills Section -->
+
+<section class="content" id="skills">
+
+    <h2>
+        My <span class="gradient">Skills</span>
+    </h2>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+            <h3>Linux</h3>
+            <p>
+                Linux commands, file permissions,
+                users, groups and process management.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Git & GitHub</h3>
+            <p>
+                Version control, repositories
+                and source code management.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>AWS</h3>
+            <p>
+                Cloud computing fundamentals
+                and EC2 instance management.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Jenkins</h3>
+            <p>
+                CI/CD pipelines and automated
+                build and deployment workflows.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Docker</h3>
+            <p>
+                Containerization and
+                application deployment.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h3>DevOps</h3>
+            <p>
+                Automation, continuous integration
+                and deployment practices.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Contact Section -->
+
+<section class="content" id="contact">
+
+    <h2>
+        Contact <span class="gradient">Me</span>
+    </h2>
+
+    <div class="contact-box">
+
+        <h3>Let's Connect!</h3>
+
+        <p>
+            I'm open to learning opportunities,
+            projects and professional connections.
+        </p>
+
+        <a href="mailto:your-email@example.com"
+           class="btn btn-primary">
+            Email Me
+        </a>
+
+        <div class="buttons" style="justify-content:center;">
+
+            <a href="https://linkedin.com/"
+               target="_blank" class="btn">
+                LinkedIn
             </a>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-center px-4 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center">
-        <div class="absolute inset-0 bg-stone-950/70"></div>
-        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
-            <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Welcome to Culinary Excellence</span>
-            <h1 class="text-4xl md:text-6xl font-serif font-bold tracking-tight">An Unforgettable Dining Experience</h1>
-            <p class="text-stone-300 text-base md:text-lg">Discover artisan dishes crafted with seasonal ingredients, exquisite flavors, and passion.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="#menu" class="bg-amber-600 hover:bg-amber-500 text-stone-950 px-8 py-3 rounded-full font-medium uppercase text-sm tracking-wider transition-all">Explore Menu</a>
-                <a href="#contact" class="border border-stone-300 hover:border-amber-500 hover:text-amber-500 px-8 py-3 rounded-full font-medium uppercase text-sm tracking-wider transition-all">Make a Reservation</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center space-y-4 mb-16">
-            <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Taste Our Finest</span>
-            <h2 class="text-3xl md:text-5xl font-serif font-bold">Our Signature Menu</h2>
-            <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Menu Item 1 -->
-            <div class="bg-stone-800/40 border border-stone-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-serif text-xl font-semibold">Truffle Mushroom Risotto</h3>
-                        <span class="text-amber-500 font-semibold">$24</span>
-                    </div>
-                    <p class="text-stone-400 text-sm">Arborio rice, wild forest mushrooms, black truffle paste, and aged parmesan.</p>
-                </div>
-            </div>
-
-            <!-- Menu Item 2 -->
-            <div class="bg-stone-800/40 border border-stone-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-serif text-xl font-semibold">Pan-Seared Sea Bass</h3>
-                        <span class="text-amber-500 font-semibold">$32</span>
-                    </div>
-                    <p class="text-stone-400 text-sm">Fresh Atlantic sea bass served with asparagus puree and lemon-herb butter sauce.</p>
-                </div>
-            </div>
-
-            <!-- Menu Item 3 -->
-            <div class="bg-stone-800/40 border border-stone-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-serif text-xl font-semibold">Wagyu Ribeye Steak</h3>
-                        <span class="text-amber-500 font-semibold">$48</span>
-                    </div>
-                    <p class="text-stone-400 text-sm">Grade-A Wagyu beef grilled to perfection, accompanied by roasted garlic potatoes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="bg-stone-950 py-24 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Our Story</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold">Tradition Meets Modern Gastronomy</h2>
-                <p class="text-stone-300 leading-relaxed">
-                    Founded in 2018, The Gourmet Table has been dedicated to blending timeless culinary techniques with modern flavors. Our master chefs handpick organic, locally-sourced ingredients daily to bring you dishes that delight all your senses.
-                </p>
-                <div class="grid grid-cols-2 gap-6 pt-4">
-                    <div>
-                        <h4 class="text-3xl font-serif font-bold text-amber-500">15+</h4>
-                        <p class="text-stone-400 text-sm uppercase tracking-wider mt-1">Master Chefs</p>
-                    </div>
-                    <div>
-                        <h4 class="text-3xl font-serif font-bold text-amber-500">50k+</h4>
-                        <p class="text-stone-400 text-sm uppercase tracking-wider mt-1">Happy Guests</p>
-                    </div>
-                </div>
-            </div>
-            <div class="h-96 bg-[url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center rounded-2xl shadow-xl"></div>
-        </div>
-    </section>
-
-    <!-- Contact & Reservation Section -->
-    <section id="contact" class="py-24 px-6 max-w-4xl mx-auto">
-        <div class="text-center space-y-4 mb-16">
-            <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Join Us</span>
-            <h2 class="text-3xl md:text-5xl font-serif font-bold">Reserve a Table</h2>
-            <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
-        </div>
-
-        <form id="reservationForm" onsubmit="handleReservation(event)" class="space-y-6 bg-stone-800/20 border border-stone-800 p-8 rounded-2xl">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Full Name</label>
-                    <input type="text" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100" placeholder="John Doe">
-                </div>
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Email Address</label>
-                    <input type="email" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100" placeholder="john@example.com">
-                </div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Date</label>
-                    <input type="date" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100">
-                </div>
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Time</label>
-                    <input type="time" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100">
-                </div>
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Guests</label>
-                    <select class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100">
-                        <option>1 Person</option>
-                        <option selected>2 People</option>
-                        <option>3 People</option>
-                        <option>4+ People</option>
-                    </select>
-                </div>
-            </div>
-            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-stone-950 font-semibold py-4 rounded-lg uppercase tracking-wider transition-all">
-                Confirm Reservation
-            </button>
-            <p id="successMessage" class="hidden text-center text-emerald-400 text-sm mt-4">Thank you! Your table has been reserved successfully.</p>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-stone-950 border-t border-stone-800 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-            <div>
-                <span class="text-xl font-serif text-amber-500 font-bold">The Gourmet Table</span>
-                <p class="text-stone-400 text-sm mt-1">123 Culinary Ave, Food District, City</p>
-            </div>
-            <p class="text-stone-500 text-sm">&copy; 2026 The Gourmet Table. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Basic JS for form feedback -->
-    <script>
-        function handleReservation(event) {
-            event.preventDefault();
-            const successMsg = document.getElementById('successMessage');
-            successMsg.classList.remove('hidden');
-            document.getElementById('reservationForm').reset();
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 5000);
-        }
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gourmet Table | Fine Dining & Bar</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-stone-900 text-stone-100 font-sans antialiased">
-
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-950/80 backdrop-blur-md border-b border-stone-800">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-serif tracking-wider text-amber-500">The Gourmet Table</a>
-            
-            <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium">
-                <a href="#home" class="hover:text-amber-500 transition-colors">Home</a>
-                <a href="#menu" class="hover:text-amber-500 transition-colors">Menu</a>
-                <a href="#about" class="hover:text-amber-500 transition-colors">About</a>
-                <a href="#contact" class="hover:text-amber-500 transition-colors">Contact</a>
-            </nav>
-
-            <a href="#contact" class="hidden md:inline-block bg-amber-600 hover:bg-amber-500 text-stone-950 px-5 py-2.5 rounded-full text-sm font-semibold uppercase tracking-wider transition-all">
-                Book Table
+            <a href="https://github.com/"
+               target="_blank" class="btn">
+                GitHub
             </a>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-center px-4 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center">
-        <div class="absolute inset-0 bg-stone-950/70"></div>
-        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
-            <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Welcome to Culinary Excellence</span>
-            <h1 class="text-4xl md:text-6xl font-serif font-bold tracking-tight">An Unforgettable Dining Experience</h1>
-            <p class="text-stone-300 text-base md:text-lg">Discover artisan dishes crafted with seasonal ingredients, exquisite flavors, and passion.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <a href="#menu" class="bg-amber-600 hover:bg-amber-500 text-stone-950 px-8 py-3 rounded-full font-medium uppercase text-sm tracking-wider transition-all">Explore Menu</a>
-                <a href="#contact" class="border border-stone-300 hover:border-amber-500 hover:text-amber-500 px-8 py-3 rounded-full font-medium uppercase text-sm tracking-wider transition-all">Make a Reservation</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center space-y-4 mb-16">
-            <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Taste Our Finest</span>
-            <h2 class="text-3xl md:text-5xl font-serif font-bold">Our Signature Menu</h2>
-            <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Menu Item 1 -->
-            <div class="bg-stone-800/40 border border-stone-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-serif text-xl font-semibold">Truffle Mushroom Risotto</h3>
-                        <span class="text-amber-500 font-semibold">$24</span>
-                    </div>
-                    <p class="text-stone-400 text-sm">Arborio rice, wild forest mushrooms, black truffle paste, and aged parmesan.</p>
-                </div>
-            </div>
+    </div>
 
-            <!-- Menu Item 2 -->
-            <div class="bg-stone-800/40 border border-stone-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-serif text-xl font-semibold">Pan-Seared Sea Bass</h3>
-                        <span class="text-amber-500 font-semibold">$32</span>
-                    </div>
-                    <p class="text-stone-400 text-sm">Fresh Atlantic sea bass served with asparagus puree and lemon-herb butter sauce.</p>
-                </div>
-            </div>
+</section>
 
-            <!-- Menu Item 3 -->
-            <div class="bg-stone-800/40 border border-stone-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-serif text-xl font-semibold">Wagyu Ribeye Steak</h3>
-                        <span class="text-amber-500 font-semibold">$48</span>
-                    </div>
-                    <p class="text-stone-400 text-sm">Grade-A Wagyu beef grilled to perfection, accompanied by roasted garlic potatoes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Footer -->
 
-    <!-- About Section -->
-    <section id="about" class="bg-stone-950 py-24 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Our Story</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold">Tradition Meets Modern Gastronomy</h2>
-                <p class="text-stone-300 leading-relaxed">
-                    Founded in 2018, The Gourmet Table has been dedicated to blending timeless culinary techniques with modern flavors. Our master chefs handpick organic, locally-sourced ingredients daily to bring you dishes that delight all your senses.
-                </p>
-                <div class="grid grid-cols-2 gap-6 pt-4">
-                    <div>
-                        <h4 class="text-3xl font-serif font-bold text-amber-500">15+</h4>
-                        <p class="text-stone-400 text-sm uppercase tracking-wider mt-1">Master Chefs</p>
-                    </div>
-                    <div>
-                        <h4 class="text-3xl font-serif font-bold text-amber-500">50k+</h4>
-                        <p class="text-stone-400 text-sm uppercase tracking-wider mt-1">Happy Guests</p>
-                    </div>
-                </div>
-            </div>
-            <div class="h-96 bg-[url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center rounded-2xl shadow-xl"></div>
-        </div>
-    </section>
+<footer>
+    © <span id="year"></span> Aswanth.
+    All Rights Reserved.
+</footer>
 
-    <!-- Contact & Reservation Section -->
-    <section id="contact" class="py-24 px-6 max-w-4xl mx-auto">
-        <div class="text-center space-y-4 mb-16">
-            <span class="text-amber-500 uppercase tracking-widest text-sm font-semibold">Join Us</span>
-            <h2 class="text-3xl md:text-5xl font-serif font-bold">Reserve a Table</h2>
-            <div class="w-16 h-0.5 bg-amber-500 mx-auto"></div>
-        </div>
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
 
-        <form id="reservationForm" onsubmit="handleReservation(event)" class="space-y-6 bg-stone-800/20 border border-stone-800 p-8 rounded-2xl">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Full Name</label>
-                    <input type="text" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100" placeholder="John Doe">
-                </div>
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Email Address</label>
-                    <input type="email" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100" placeholder="john@example.com">
-                </div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Date</label>
-                    <input type="date" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100">
-                </div>
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Time</label>
-                    <input type="time" required class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100">
-                </div>
-                <div>
-                    <label class="block text-sm uppercase tracking-wider mb-2 font-medium">Guests</label>
-                    <select class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 text-stone-100">
-                        <option>1 Person</option>
-                        <option selected>2 People</option>
-                        <option>3 People</option>
-                        <option>4+ People</option>
-                    </select>
-                </div>
-            </div>
-            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-stone-950 font-semibold py-4 rounded-lg uppercase tracking-wider transition-all">
-                Confirm Reservation
-            </button>
-            <p id="successMessage" class="hidden text-center text-emerald-400 text-sm mt-4">Thank you! Your table has been reserved successfully.</p>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-stone-950 border-t border-stone-800 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-            <div>
-                <span class="text-xl font-serif text-amber-500 font-bold">The Gourmet Table</span>
-                <p class="text-stone-400 text-sm mt-1">123 Culinary Ave, Food District, City</p>
-            </div>
-            <p class="text-stone-500 text-sm">&copy; 2026 The Gourmet Table. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Basic JS for form feedback -->
-    <script>
-        function handleReservation(event) {
-            event.preventDefault();
-            const successMsg = document.getElementById('successMessage');
-            successMsg.classList.remove('hidden');
-            document.getElementById('reservationForm').reset();
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 5000);
-        }
-    </script>
 </body>
 </html>
